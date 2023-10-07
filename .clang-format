@@ -1,0 +1,12 @@
+BasedOnStyle: llvm
+AccessModifierOffset: -4
+AlignEscapedNewlinesLeft: true
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakTemplateDeclarations: true
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
+ContinuationIndentWidth: 8
+IndentWidth: 4
+ColumnLimit: '80'
+PenaltyBreakBeforeFirstCallParameter: 40
+SpaceAfterCStyleCast: true
