@@ -222,9 +222,11 @@ ISR(TIMER0_COMPA_vect, ISR_NAKED) {
                      :
                      : "e"(g_main_task_sp));
 
+    avrtos_sched_timer_stop_impl();
     sei();
     task_select_next();
     cli();
+    avrtos_sched_timer_resume_impl();
 
     /* save main SP to its variable */
     __asm__ volatile("in %A0, __SP_L__ \n\t"
