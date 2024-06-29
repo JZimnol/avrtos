@@ -8,6 +8,12 @@
 extern "C" {
 #endif // __cplusplus
 
+#define AVRTOS_NON_PREEMPTIVE_SECTION()                                   \
+    for (bool AVRTOS_CONCAT(_run, __LINE__) =                             \
+                 (avrtos_sched_timer_stop_impl(), true);                  \
+         AVRTOS_CONCAT(_run, __LINE__); avrtos_sched_timer_resume_impl(), \
+                                  AVRTOS_CONCAT(_run, __LINE__) = false)
+
 void avrtos_sched_timer_init_impl(void);
 void avrtos_sched_timer_reset_impl(void);
 void avrtos_sched_timer_stop_impl();
